@@ -189,7 +189,13 @@ version:
 3. Rootless Mode
 Podman doesn't require root access to run its commands. Docker, on the other hand, being dependent on the daemon process, requires root privileges or requires the user to be part of the docker group to be able to run the Docker commands without root privilege.
 ```
-$ sudo usermod -aG docker $USER
+ubuntu@controlplane:~$ podman ps
+CONTAINER ID  IMAGE       COMMAND     CREATED     STATUS      PORTS       NAMES
+ubuntu@controlplane:~$ docker ps
+Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/json": dial unix /var/run/docker.sock: connect: permission denied
+
+$ sudo usermod -aG docker ubuntu
+
 ```
 
 
